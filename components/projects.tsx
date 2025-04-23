@@ -147,9 +147,8 @@ export default function Projects() {
     threshold: 0.1,
   })
 
-  const [activeTab, setActiveTab] = useState("all")
-
-  const filteredProjects = activeTab === "all" ? projects : projects.filter((project) => project.category === activeTab)
+  const [activeTab, setActiveTab] = useState("web");
+  const categories = [ "web", "mobile", "game", "algorithm", "simulation"];
 
   return (
     <section id="projects" ref={ref} className="w-full py-20 px-4 section-alt-bg">
@@ -166,10 +165,10 @@ export default function Projects() {
           </p>
         </motion.div>
 
-        <Tabs defaultValue="all" value={activeTab} onValueChange={setActiveTab} className="mb-8">
+        <Tabs defaultValue="web" value={activeTab} onValueChange={setActiveTab} className="mb-8">
           <div className="flex justify-center">
             <TabsList>
-              <TabsTrigger value="all">All Projects</TabsTrigger>
+              {/* <TabsTrigger value="all">All Projects</TabsTrigger> */}
               <TabsTrigger value="web">Web</TabsTrigger>
               <TabsTrigger value="mobile">Mobile</TabsTrigger>
               <TabsTrigger value="game">Games</TabsTrigger>
@@ -178,12 +177,21 @@ export default function Projects() {
             </TabsList>
           </div>
 
-          {['all', 'web', 'mobile', 'game', 'algorithm', 'simulation'].map((tab) => (
+          {categories.map((tab) => (
             <TabsContent key={tab} value={tab} className="mt-6">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredProjects.map((project, index) => (
-                  <ProjectCard key={project.title} project={project} index={index} inView={inView} />
-                ))}
+                {projects
+                  .filter((project) => 
+                    tab === "all" ? true : project.category === tab
+                  )
+                  .map((project, index) => (
+                    <ProjectCard
+                      key={project.title}
+                      project={project}
+                      index={index}
+                      inView={inView}
+                    />
+                  ))}
               </div>
             </TabsContent>
           ))}
