@@ -8,7 +8,7 @@ import { Briefcase } from "lucide-react"
 
 const experiences = [
   {
-    role: "Software Engineering Team Lead & CTO",
+    role: "Software Engineering Team Lead ",
     company: "Prim Tech Solution",
     location: "Onsite",
     period: "Sep 2025 - Present",

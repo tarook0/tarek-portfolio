@@ -38,7 +38,7 @@ export default function About() {
               Accomplished Software Engineer and Team Lead with over 1 year of experience developing IoT solutions and
               high-performance applications. I specialize in full-stack development with .NET and Next.js, as well as
               Java, Python, and Dart/Flutter. I bring proven expertise in leading development teams, driving agile
-              workflows, and ensuring code quality through continuous reviews — currently serving as Team Lead & CTO
+              workflows, and ensuring code quality through continuous reviews — currently serving as Team Lead 
               at Prim Tech Solution.
             </p>
 
@@ -105,7 +105,7 @@ export default function About() {
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold">Currently Building</h3>
-                      <h4 className="font-medium">Software Engineering Team Lead & CTO</h4>
+                      <h4 className="font-medium">Software Engineering Team Lead </h4>
                       <p className="text-muted-foreground">Prim Tech Solution, Onsite</p>
                       <p className="text-sm text-muted-foreground">Sep 2025 - Present</p>
                       <p className="mt-2 text-sm text-muted-foreground">

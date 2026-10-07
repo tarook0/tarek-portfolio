@@ -47,7 +47,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="text-xl md:text-2xl text-muted-foreground mb-6"
         >
-          Software Engineering Team Lead & CTO
+          Software Engineering Team Lead 
         </motion.h2>
 
         <motion.div
