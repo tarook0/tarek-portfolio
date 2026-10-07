@@ -28,7 +28,7 @@ export default function Hero() {
           className="mb-6"
         >
           <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-6 border-4 border-primary/20">
-            <img src="./profile.jpeg" alt="Tarek AlHabbal" className="w-full h-full object-cover" />
+            <img src="./profile.jpeg" alt="Tarek Al-Habbal" className="w-full h-full object-cover" />
           </div>
         </motion.div>
 
@@ -38,7 +38,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="text-4xl md:text-6xl font-bold tracking-tight mb-4"
         >
-          Tarek AlHabbal
+          Tarek Al-Habbal
         </motion.h1>
 
         <motion.h2
@@ -47,7 +47,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="text-xl md:text-2xl text-muted-foreground mb-6"
         >
-          Software Engineer & Frontend Developer
+          Software Engineering Team Lead & CTO
         </motion.h2>
 
         <motion.div
@@ -89,8 +89,9 @@ export default function Hero() {
           className="max-w-2xl mx-auto"
         >
           <p className="text-lg mb-8">
-            Accomplished Software Engineer with expertise in full-stack development, specializing in React.js, Next.js,
-            and modern web technologies.
+            Accomplished Software Engineer and Team Lead with over 1 year of experience building IoT solutions and
+            high-performance applications. I specialize in full-stack development with .NET and Next.js, and ship
+            production software with Java, Python, and Flutter.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg">

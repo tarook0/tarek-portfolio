@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
-            <p className="text-sm text-muted-foreground">© {currentYear} Tarek AlHabbal. All rights reserved.</p>
+            <p className="text-sm text-muted-foreground">© {currentYear} Tarek Al-Habbal. All rights reserved.</p>
           </div>
 
           <nav className="flex gap-6">
@@ -17,6 +17,9 @@ export default function Footer() {
             </Link>
             <Link href="#about" className="text-sm text-muted-foreground hover:text-primary transition-colors">
               About
+            </Link>
+            <Link href="#experience" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              Experience
             </Link>
             <Link href="#skills" className="text-sm text-muted-foreground hover:text-primary transition-colors">
               Skills

@@ -4,20 +4,21 @@ import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Code, Database, Server, Globe, Smartphone, GitBranch, Workflow, Layers } from "lucide-react"
+import { Code, Database, Server, Brain, Smartphone, GitBranch, Workflow, Layers } from "lucide-react"
 
 const skillCategories = [
   {
     title: "Programming Languages",
     icon: <Code className="h-5 w-5" />,
-    skills: ["JavaScript", "TypeScript", "Python", "Java", "C++", "Dart", "PHP", "SQL", "HTML", "CSS"],
+    skills: ["Java", "Python", "JavaScript", "TypeScript", "C++", "Dart", "PHP", "SQL", "HTML", "CSS"],
   },
   {
     title: "Frameworks & Libraries",
     icon: <Layers className="h-5 w-5" />,
     skills: [
-      "React.js",
+      ".NET",
       "Next.js",
+      "React.js",
       "Node.js",
       "Express.js",
       "NestJS",
@@ -25,9 +26,15 @@ const skillCategories = [
       "Flask",
       "Laravel",
       "Flutter",
+      "jQuery",
       "Bootstrap",
       "Tailwind CSS",
     ],
+  },
+  {
+    title: "Mobile Development",
+    icon: <Smartphone className="h-5 w-5" />,
+    skills: ["Flutter", "Android Development", "iOS Development"],
   },
   {
     title: "Database & ORM",
@@ -37,12 +44,12 @@ const skillCategories = [
   {
     title: "DevOps & Cloud",
     icon: <Server className="h-5 w-5" />,
-    skills: ["Docker", "Kubernetes", "AWS", "Google Cloud", "Azure", "CI/CD", "GitHub Actions", "Jenkins"],
+    skills: ["Docker", "Kubernetes", "CI/CD", "GitHub Actions", "Jenkins"],
   },
   {
     title: "Development Tools",
     icon: <GitBranch className="h-5 w-5" />,
-    skills: ["Git", "GitHub", "GitLab", "Bitbucket", "Jira", "Trello", "Figma", "Postman", "Swagger"],
+    skills: ["Git", "GitHub", "GitLab", "Bitbucket", "Jira", "Trello", "Figma", "Postman", "Swagger", "Unity", "Blender"],
   },
   {
     title: "Methodologies & Practices",
@@ -57,24 +64,24 @@ const skillCategories = [
       "RESTful APIs",
       "GraphQL",
       "Microservices",
+      "MVC Architecture",
+      "OOP",
+      "Functional Programming",
     ],
   },
   {
-    title: "Web Development",
-    icon: <Globe className="h-5 w-5" />,
+    title: "Other Technical Skills",
+    icon: <Brain className="h-5 w-5" />,
     skills: [
-      "Responsive Design",
-      "Progressive Web Apps",
-      "Web Accessibility",
-      "SEO",
-      "Web Performance",
-      "Cross-Browser Compatibility",
+      "Data Structures",
+      "Algorithms",
+      "Computer Networks",
+      "Operating Systems",
+      "Cybersecurity",
+      "Blockchain Basics",
+      "Machine Learning Basics",
+      "Artificial Intelligence",
     ],
-  },
-  {
-    title: "Mobile Development",
-    icon: <Smartphone className="h-5 w-5" />,
-    skills: ["Flutter", "Android Development", "iOS Development", "Mobile UI/UX", "App Performance Optimization"],
   },
 ]
 
@@ -85,7 +92,7 @@ export default function Skills() {
   })
 
   return (
-    <section id="skills" ref={ref} className="w-full py-20 px-4">
+    <section id="skills" ref={ref} className="w-full py-20 px-4 section-alt-bg">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

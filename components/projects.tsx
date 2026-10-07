@@ -5,11 +5,10 @@ import { useInView } from "react-intersection-observer"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { 
-  ExternalLink, Github, Gitlab, Code, 
-  Globe, Smartphone, Gamepad, Binary, 
-  MonitorPlay, Layout, Pizza, ShoppingCart, 
-  Cpu, Puzzle, Building 
+import {
+  ExternalLink, Github, Gitlab,
+  Globe, Smartphone, Gamepad, Binary,
+  MonitorPlay, Layout, Bot,
 } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
@@ -17,11 +16,44 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 const projects = [
   {
+    title: "Rashad Law Chatbot",
+    description:
+      "AI-powered legal assistant chatbot with natural language Q&A, markdown-formatted legal documents, and session management, built with a Next.js frontend and a NestJS backend.",
+    tags: ["Next.js", "NestJS", "AI/NLP", "TypeScript"],
+    gitlab: "https://gitlab.com/tarook0/legal-backend/-/tree/master?ref_type=heads",
+    live: "https://final-rashad-law-chatbot.vercel.app/",
+    category: "ai",
+  },
+  {
+    title: "Fitness Programs App",
+    description: "Cross-platform fitness app with personalized workout plans, Firebase authentication, real-time data sync, and progress tracking.",
+    tags: ["Next.js", "Firebase", "React"],
+    github: null,
+    live: "https://fitness-programs-app.vercel.app/",
+    category: "web",
+  },
+  {
     title: "Sync-O-Theft Game Marketing Website",
     description: "Developed a responsive marketing website for a 2D stealth game using Next.js, React, and TypeScript.",
     tags: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
     github: "https://github.com/tarook0/sync",
     live: "https://sync-sjqt.vercel.app/",
+    category: "web",
+  },
+  {
+    title: "Link Shortener Tool",
+    description: "Full-stack URL shortener with click analytics, PostgreSQL storage, and a minimalist React frontend. Docker/Heroku-ready.",
+    tags: ["Node.js", "Express", "PostgreSQL", "React"],
+    github: "https://github.com/tarook0/link-shortner",
+    live: null,
+    category: "web",
+  },
+  {
+    title: "Task Management",
+    description: "Task creation and management app with categorization, search/filter, and secure user authentication.",
+    tags: ["NestJS", "TypeScript"],
+    github: "https://github.com/tarook0/nestts-task-management",
+    live: null,
     category: "web",
   },
   {
@@ -34,7 +66,7 @@ const projects = [
   },
   {
     title: "Dentist Management System",
-    description: "A system designed to help dental clinics manage patient appointments and treatments.",
+    description: "A system designed to help dental clinics manage patient appointments and treatments, with drag-and-drop scheduling and patient categorization.",
     tags: ["React", "Next.js", "Tailwind CSS"],
     github: "https://github.com/tarook0/dentist",
     live: "https://dentist-eight.vercel.app/",
@@ -42,7 +74,7 @@ const projects = [
   },
   {
     title: "Tic Tac Toe",
-    description: "Tic-Tac-Toe game with single-player and multiplayer modes.",
+    description: "Tic-Tac-Toe game with single-player (AI) and multiplayer modes, state managed with Zustand.",
     tags: ["React", "TypeScript", "Zustand"],
     github: "https://github.com/tarook0/tic_tac",
     live: null,
@@ -50,7 +82,7 @@ const projects = [
   },
   {
     title: "Fast React Pizza",
-    description: "React app for ordering pizza with location positioning.",
+    description: "React app for ordering pizza with features like food ordering and location positioning.",
     tags: ["React", "JavaScript", "CSS"],
     github: "https://github.com/tarook0/fast-react-pizza/",
     live: null,
@@ -58,7 +90,7 @@ const projects = [
   },
   {
     title: "Next.js Dashboard",
-    description: "Dashboard application built with Next.js App Router.",
+    description: "Dashboard application built with the Next.js App Router.",
     tags: ["Next.js", "React", "Tailwind CSS"],
     github: "https://github.com/tarook0/nextjs-dashboard",
     live: null,
@@ -74,7 +106,7 @@ const projects = [
   },
   {
     title: "Storefront",
-    description: "Modern e-commerce platform for businesses.",
+    description: "Modern e-commerce platform for small to medium-sized businesses.",
     tags: ["React", "Node.js", "MongoDB"],
     github: "https://github.com/tarook0/storfront",
     live: null,
@@ -82,7 +114,7 @@ const projects = [
   },
   {
     title: "Sync-O-Theft Game",
-    description: "Stealth 2D computer game with top-down perspective.",
+    description: "Stealth 2D computer game with a top-down perspective.",
     tags: ["Unity", "C#", "Game Development"],
     github: null,
     live: "https://fivelittletheives.itch.io/sync-o-theft",
@@ -106,7 +138,7 @@ const projects = [
   },
   {
     title: "Al-Aqsa Mosque Simulation",
-    description: "C++ simulation project using OpenGL.",
+    description: "C++ simulation project using OpenGL for a virtual experience.",
     tags: ["C++", "OpenGL", "3D Modeling"],
     github: "https://github.com/tarook0/Al-Aqsa",
     live: "https://www.youtube.com/watch?v=mQgjuTec9U8&feature=youtu.be",
@@ -114,7 +146,7 @@ const projects = [
   },
   {
     title: "Puzzle Game",
-    description: "Puzzle game built with modern OpenGL.",
+    description: "Puzzle game built with modern OpenGL featuring block manipulation.",
     tags: ["C++", "OpenGL", "Game Development"],
     github: "https://github.com/tarook0/Puzzle",
     live: null,
@@ -122,21 +154,63 @@ const projects = [
   },
 ]
 
-const CategoryIcon = ({ category }: { category: string }) => {
-  const iconMap = {
-    web: Globe,
-    mobile: Smartphone,
-    game: Gamepad,
-    algorithm: Binary,
-    simulation: MonitorPlay,
-    default: Layout,
-  }
+const categoryStyles = {
+  ai: {
+    icon: Bot,
+    gradient: "from-violet-500/25 via-violet-500/5 to-transparent",
+    iconBg: "bg-violet-500/15",
+    iconColor: "text-violet-600 dark:text-violet-400",
+  },
+  web: {
+    icon: Globe,
+    gradient: "from-blue-500/25 via-blue-500/5 to-transparent",
+    iconBg: "bg-blue-500/15",
+    iconColor: "text-blue-600 dark:text-blue-400",
+  },
+  mobile: {
+    icon: Smartphone,
+    gradient: "from-emerald-500/25 via-emerald-500/5 to-transparent",
+    iconBg: "bg-emerald-500/15",
+    iconColor: "text-emerald-600 dark:text-emerald-400",
+  },
+  game: {
+    icon: Gamepad,
+    gradient: "from-pink-500/25 via-pink-500/5 to-transparent",
+    iconBg: "bg-pink-500/15",
+    iconColor: "text-pink-600 dark:text-pink-400",
+  },
+  algorithm: {
+    icon: Binary,
+    gradient: "from-amber-500/25 via-amber-500/5 to-transparent",
+    iconBg: "bg-amber-500/15",
+    iconColor: "text-amber-600 dark:text-amber-400",
+  },
+  simulation: {
+    icon: MonitorPlay,
+    gradient: "from-cyan-500/25 via-cyan-500/5 to-transparent",
+    iconBg: "bg-cyan-500/15",
+    iconColor: "text-cyan-600 dark:text-cyan-400",
+  },
+  default: {
+    icon: Layout,
+    gradient: "from-primary/25 via-primary/5 to-transparent",
+    iconBg: "bg-primary/15",
+    iconColor: "text-primary",
+  },
+} as const
 
-  const Icon = iconMap[category as keyof typeof iconMap] || iconMap.default
+const ProjectCover = ({ category }: { category: string }) => {
+  const style = categoryStyles[category as keyof typeof categoryStyles] || categoryStyles.default
+  const Icon = style.icon
 
   return (
-    <div className="p-4 bg-primary/10 rounded-xl">
-      <Icon className="h-12 w-12 text-primary transition-transform duration-300 group-hover:scale-110" />
+    <div className={`relative h-40 overflow-hidden bg-gradient-to-br ${style.gradient}`}>
+      <div className="absolute inset-0 bg-grid-pattern opacity-40" />
+      <div className="relative h-full flex items-center justify-center">
+        <div className={`p-5 rounded-2xl ${style.iconBg} backdrop-blur-sm`}>
+          <Icon className={`h-10 w-10 ${style.iconColor} transition-transform duration-300 group-hover:scale-110`} />
+        </div>
+      </div>
     </div>
   )
 }
@@ -147,11 +221,11 @@ export default function Projects() {
     threshold: 0.1,
   })
 
-  const [activeTab, setActiveTab] = useState("web");
-  const categories = [ "web", "mobile", "game", "algorithm", "simulation"];
+  const [activeTab, setActiveTab] = useState("ai");
+  const categories = ["ai", "web", "mobile", "game", "algorithm", "simulation"];
 
   return (
-    <section id="projects" ref={ref} className="w-full py-20 px-4 section-alt-bg">
+    <section id="projects" ref={ref} className="w-full py-20 px-4">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -165,10 +239,10 @@ export default function Projects() {
           </p>
         </motion.div>
 
-        <Tabs defaultValue="web" value={activeTab} onValueChange={setActiveTab} className="mb-8">
+        <Tabs defaultValue="ai" value={activeTab} onValueChange={setActiveTab} className="mb-8">
           <div className="flex justify-center">
-            <TabsList>
-              {/* <TabsTrigger value="all">All Projects</TabsTrigger> */}
+            <TabsList className="flex-wrap h-auto">
+              <TabsTrigger value="ai">AI</TabsTrigger>
               <TabsTrigger value="web">Web</TabsTrigger>
               <TabsTrigger value="mobile">Mobile</TabsTrigger>
               <TabsTrigger value="game">Games</TabsTrigger>
@@ -201,7 +275,17 @@ export default function Projects() {
   )
 }
 
-function ProjectCard({ project, index, inView }) {
+type Project = (typeof projects)[number]
+
+function ProjectCard({
+  project,
+  index,
+  inView,
+}: {
+  project: Project
+  index: number
+  inView: boolean
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -209,10 +293,8 @@ function ProjectCard({ project, index, inView }) {
       transition={{ duration: 0.5, delay: 0.1 * (index % 6) }}
     >
       <Card className="h-full flex flex-col overflow-hidden group theme-card hover:shadow-lg transition-shadow">
-        <div className="p-6 flex items-center justify-center bg-muted/50">
-          <CategoryIcon category={project.category} />
-        </div>
-        
+        <ProjectCover category={project.category} />
+
         <CardHeader className="pb-2 px-6">
           <CardTitle className="text-lg font-semibold">{project.title}</CardTitle>
         </CardHeader>

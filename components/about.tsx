@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { Card, CardContent } from "@/components/ui/card"
 import { Briefcase, GraduationCap, MapPin, Mail, Phone } from "lucide-react"
+import Link from "next/link"
 
 export default function About() {
   const [ref, inView] = useInView({
@@ -34,10 +35,11 @@ export default function About() {
           >
             <h3 className="text-xl font-semibold mb-4">Professional Summary</h3>
             <p className="text-muted-foreground mb-6">
-              Accomplished Software Engineer with over 1 year of experience in developing IoT solutions and
-              high-performance applications. I specialize in Java, Python, JavaScript, C++, Dart/Flutter, React.js, and
-              MySQL. Expert in full-stack development, database optimization, and automated testing, with a strong focus
-              on agile workflows and continuous code reviews.
+              Accomplished Software Engineer and Team Lead with over 1 year of experience developing IoT solutions and
+              high-performance applications. I specialize in full-stack development with .NET and Next.js, as well as
+              Java, Python, and Dart/Flutter. I bring proven expertise in leading development teams, driving agile
+              workflows, and ensuring code quality through continuous reviews — currently serving as Team Lead & CTO
+              at Prim Tech Solution.
             </p>
 
             <div className="space-y-4">
@@ -83,7 +85,7 @@ export default function About() {
                       <p className="text-muted-foreground">
                         Damascus University, Faculty of Information Technology Engineering
                       </p>
-                      <p className="text-sm text-muted-foreground">Expected: October 2024</p>
+                      <p className="text-sm text-muted-foreground">Graduated: October 2024</p>
                     </div>
                   </div>
                 </CardContent>
@@ -102,15 +104,20 @@ export default function About() {
                       <Briefcase className="h-6 w-6 text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold">Work Experience</h3>
-                      <h4 className="font-medium">Software Developer</h4>
-                      <p className="text-muted-foreground">Remote Position, Montreal, Canada</p>
-                      <p className="text-sm text-muted-foreground">Jun 2024 - Jan 2025</p>
-                      <ul className="list-disc list-inside mt-2 text-sm text-muted-foreground">
-                        <li>Developed responsive web interfaces using React.js</li>
-                        <li>Collaborated with backend teams to integrate RESTful APIs</li>
-                        <li>Conducted code reviews for best practices</li>
-                      </ul>
+                      <h3 className="text-lg font-semibold">Currently Building</h3>
+                      <h4 className="font-medium">Software Engineering Team Lead & CTO</h4>
+                      <p className="text-muted-foreground">Prim Tech Solution, Onsite</p>
+                      <p className="text-sm text-muted-foreground">Sep 2025 - Present</p>
+                      <p className="mt-2 text-sm text-muted-foreground">
+                        Leading a full-stack team on .NET and Next.js, setting coding standards, and running the
+                        end-to-end development lifecycle from requirements to deployment.
+                      </p>
+                      <Link
+                        href="#experience"
+                        className="inline-block mt-3 text-sm font-medium text-primary hover:underline"
+                      >
+                        View full experience →
+                      </Link>
                     </div>
                   </div>
                 </CardContent>

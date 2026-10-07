@@ -13,6 +13,7 @@ import { useTheme } from "next-themes"
 const navLinks = [
   { name: "Home", href: "#hero" },
   { name: "About", href: "#about" },
+  { name: "Experience", href: "#experience" },
   { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
   { name: "Contact", href: "#contact" },
@@ -52,7 +53,7 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link href="/" className="text-xl font-bold tracking-tighter hover:opacity-80 transition-opacity">
-          <span className="text-primary">Tarek</span> AlHabbal
+          <span className="text-primary">Tarek</span> Al-Habbal
         </Link>
 
         {/* Desktop Navigation */}

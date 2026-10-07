@@ -9,10 +9,21 @@ import Footer from "@/components/footer"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Tarek AlHabbal | Frontend Developer",
-  description: "Portfolio website of Tarek AlHabbal, a Frontend Developer specializing in React, Next.js, and more.",
-  keywords: ["frontend developer", "react developer", "software engineer", "web development", "portfolio"],
-  authors: [{ name: "Tarek AlHabbal" }],
+  title: "Tarek Al-Habbal | Software Engineer & Team Lead",
+  description:
+    "Portfolio of Tarek Al-Habbal, a Software Engineering Team Lead & CTO specializing in full-stack development with .NET, Next.js, Java, Python, and Flutter.",
+  keywords: [
+    "software engineer",
+    "team lead",
+    "CTO",
+    "full-stack developer",
+    ".NET developer",
+    "next.js developer",
+    "react developer",
+    "flutter developer",
+    "portfolio",
+  ],
+  authors: [{ name: "Tarek Al-Habbal" }],
     generator: 'v0.dev'
 }
 
